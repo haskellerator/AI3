@@ -1,5 +1,3 @@
-package probabilisticReasoning;
-
 /**
  * Created with IntelliJ IDEA.
  * User: talz
