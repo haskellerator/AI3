@@ -1,0 +1,10 @@
+#V 4    ; number of vertices n in graph (from 1 to n)
+
+#E 1 2 W1 ; Edge between vertices 1 and 2, weight 1
+#E 2 3 W3 ; Edge between vertices 2 and 3, weight 3
+#E 3 4 W3 ; Edge between vertices 3 and 4, weight 3
+#E 2 4 W4 ; Edge between vertices 2 and 4, weight 4
+#C      0.11
+#A      0.23
+#R      0.8
+#Goal V3  ; To be used in optional bonus, if applicable
