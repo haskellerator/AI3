@@ -24,15 +24,13 @@ public class EntryPoint {
         Graph g = Utility.processGraphFromFile();  // creating graph
         BayesianNetwork bn = new BayesianNetwork(g);
         Utility.openInput();
-
         startSimulation(g, bn);
-
-
         Utility.closeInput();
     }
 
     private static void startSimulation(Graph g, BayesianNetwork bn) throws IOException {
         while (true) {
+            print(g.toString());
             print("~~~ What would you like to do?\n~~~    0. quit.\n~~~    1. Reset evidence list." +
                     "\n~~~    2. Add evidence.\n~~~    3. Show evidence list.\n~~~    4. Do probabilistic reasoning.");
             String line = Utility.br.readLine();
