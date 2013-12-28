@@ -12,24 +12,20 @@ import java.util.Iterator;
 
 public class Vertex {
     private ArrayList<Edge> edges;
-    private int chemicals;
-    private int militaryUnits;
+    private boolean chemicals;
+    private boolean reportedChem;
+    private boolean army;
+    private int reportedArmy;
     private int index;
     private boolean goal;
-
-    // copy constructor for the state
-    public Vertex(Vertex other) {
-        this.edges = new ArrayList<Edge>();
-        this.chemicals = other.getChemicals();
-        this.militaryUnits = other.getMUnits();
-        this.index = other.getIndex();
-        this.goal = false;
-    }
 
     public Vertex(int i) {
         index = i;
         edges = new ArrayList<Edge>(0);
-
+        this.chemicals = false;
+        this.reportedChem = false;
+        this.army = false;
+        this.reportedArmy = Flags.REPORTED_NOT;
     }
 
     public int getIndex() {
@@ -41,17 +37,17 @@ public class Vertex {
     }
 
     public String toString() {
-        String ans = "@---@ v " + index + " ( chems: " + chemicals + " , mUnits: " + militaryUnits + " )";
+        String ans = "@---@ v " + index + " ( chems: " + chemicals + " , mUnits: " + army + " )";
         for (int i = 0; i < edges.size(); i++)
             ans += "\n" + edges.get(i).toString(this);
         return ans;
     }
 
-    public void setChemicals(int a) {
+    public void setChemicals(boolean a) {
         chemicals = a;
     }
 
-    public int getChemicals() {
+    public boolean getChemicals() {
         return chemicals;
     }
 
@@ -70,70 +66,19 @@ public class Vertex {
         return edges;
     }
 
-    public int getMUnits() {
-        return militaryUnits;
+    public boolean getArmy() {
+        return army;
     }
 
-    public boolean hasMUnits() {
-        return militaryUnits > 0;
+    public void setArmy(boolean a) {
+        army = a;
     }
 
-    public void setMUnits(int i) {
-        militaryUnits = i;
-    }
 
-    public void decMUnits() {
-        if (hasMUnits()) {
-            militaryUnits -= 1;
-        }
-    }
 
     public boolean hasChems() {
-        return chemicals > 0;
+        return chemicals;
     }
-
-    public void decChems() {
-        if (hasChems()) {
-            chemicals -= 1;
-        }
-    }
-
-    // makes sure it is a duplicate and not the same object
-    public boolean notIdentical(Vertex other) {
-        return this.equals(other) && other != this;
-    }
-
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Vertex)
-            return ((Vertex) obj).getIndex() == this.index
-                    && ((Vertex) obj).getChemicals() == this.chemicals
-                    && ((Vertex) obj).getMUnits() == this.militaryUnits;
-        else return false;
-    }
-
-
-    public boolean equals2(Object obj) {
-        if (obj instanceof Vertex)
-            return ((Vertex) obj).getIndex() == this.index;
-        else return false;
-    }
-
-    public void deledgewith(Vertex v2) {
-        for (int i = 0; i < edges.size(); i++) {
-            Edge e = edges.get(i);
-            if ((e.getSecond()).getIndex() == v2.getIndex()) {
-                edges.remove(i);
-                i--;
-            }
-        }
-    }
-
-    public void deledge(int i) {
-        this.edges.remove(i);
-    }
-
 
     public boolean isGoal() {
         return goal;
@@ -141,6 +86,22 @@ public class Vertex {
 
     public void setGoal(boolean goal) {
         this.goal = goal;
+    }
+
+    public int getReportedArmy() {
+        return reportedArmy;
+    }
+
+    public void setReportedArmy(int reportedArmy) {
+        this.reportedArmy = reportedArmy;
+    }
+
+    public boolean getReportedChem() {
+        return reportedChem;
+    }
+
+    public void setReportedChem(boolean reportedChem) {
+        this.reportedChem = reportedChem;
     }
 }
 

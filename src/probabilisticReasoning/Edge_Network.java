@@ -3,19 +3,19 @@ import java.util.ArrayList;
 
 public class Edge_Network {
 
-    private ArrayList<Vertex_Network> parents;
+    private ArrayList<BayesianNode> parents;
     private int first;
     private int second;
     private double weight;
 
     public Edge_Network(int f, double w) {
-        this.parents = new ArrayList<Vertex_Network>();
+        this.parents = new ArrayList<BayesianNode>();
         this.first = f;
         this.setWeight(w);
     }
 
 
-    public void add_parnet(Vertex_Network v) {
+    public void add_parnet(BayesianNode v) {
         this.parents.add(v);
     }
 

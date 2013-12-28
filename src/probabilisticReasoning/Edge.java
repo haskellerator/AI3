@@ -10,19 +10,15 @@ public class Edge {
     private Vertex first;
     private Vertex second;
     private double weight;
-
-    // copy constuctor for the graph
-    public Edge(Edge other) {
-        this.first = null;
-        this.second = null;
-        this.weight = other.getWeight();
-
-    }
+    private boolean terrorists;
+    private int reportedTerrorists;
 
     public Edge(Vertex f, Vertex s, int w) {
         this.first = f;
         this.second = s;
         this.weight = w;
+        this.setTerrorists(false);
+        this.setReportedTerrorists(Flags.REPORTED_NOT);
     }
 
     public Vertex otherSide(Vertex from) {
@@ -71,55 +67,23 @@ public class Edge {
         this.second = snd;
     }
 
-    public boolean compare(Edge other) {
-        return (this.first.getIndex() == other.getFirst().getIndex() &&
-                this.second.getIndex() == other.getSecond().getIndex()) ||
-                (this.first.getIndex() == other.getSecond().getIndex() &&
-                        this.second.getIndex() == other.getFirst().getIndex());
+    public boolean isTerrorists() {
+        return terrorists;
     }
 
-
-    // need to check also the weight ????
-    public boolean equals(Object obj) {
-        if (obj instanceof Edge) {
-            Edge e = (Edge) obj;
-            boolean v_comp = ((e.first.equals(first) && e.second.equals(second))
-                    || (e.first.equals(second) && e.second.equals(first)))
-                    && e.getWeight() == this.getWeight();
-            return (v_comp);// && this.weight == ((Edge) obj).getWeight() );
-        } else return false;
+    public void setTerrorists(boolean terrorists) {
+        this.terrorists = terrorists;
     }
 
-    public boolean equals2(Object obj) {
-        if (obj instanceof Edge) {
-            Edge e = (Edge) obj;
-            boolean v_comp = ((e.first.equals(first) && e.second.equals(second))
-                    || (e.first.equals(second) && e.second.equals(first)))
-                    && e.getWeight() == this.getWeight();
-            return (v_comp);// && this.weight == ((Edge) obj).getWeight() );
-        } else return false;
+    public int getReportedTerrorists() {
+        return reportedTerrorists;
     }
 
-
-    // checks that edges are duplicates
-    public boolean notIdentical(Edge e) {
-        if (this.equals(e) && this != e) {
-            if (!first.notIdentical(e.getFirst())) {
-                System.out.println(1);
-                return false;
-            } else if (!first.notIdentical(e.getSecond())) {
-                System.out.println(2);
-                return false;
-            } else if (!second.notIdentical(e.getFirst())) {
-                System.out.println(3);
-                return false;
-            } else if (!second.notIdentical(e.getSecond())) {
-                System.out.println(4);
-                return false;
-            }
-        }
-        return true;
+    public void setReportedTerrorists(int reportedTerrorists) {
+        this.reportedTerrorists = reportedTerrorists;
     }
 
-
+    public String show() {
+        return "" + first.getIndex() + " -> " + second.getIndex();
+    }
 }

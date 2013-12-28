@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class utility {
+public class Utility {
 
     public static String fileName;
     public static BufferedReader br;
