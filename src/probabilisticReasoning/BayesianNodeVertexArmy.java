@@ -3,21 +3,14 @@ import java.util.ArrayList;
 /**
  * Created by talz on 27/12/13.
  */
-public class BayesianNodeReported extends BayesianNode {
-    private BayesianNodeChem parent;
+public class BayesianNodeVertexArmy extends BayesianNodeVertex {
+
     private ArrayList<BayesianNodeTerrorists> children;
 
-    public BayesianNodeReported(Vertex v) {
+
+    public BayesianNodeVertexArmy(Vertex v) {
         super(v);
         this.children = new ArrayList<BayesianNodeTerrorists>();
-    }
-
-    public void setParent(BayesianNodeChem parent) {
-        this.parent = parent;
-    }
-
-    public BayesianNodeChem getParent() {
-        return parent;
     }
 
     public ArrayList<BayesianNodeTerrorists> getChildren() {
@@ -30,6 +23,11 @@ public class BayesianNodeReported extends BayesianNode {
 
     @Override
     public String toString() {
-        return "" + getVertex().getIndex() + 'r';
+        return "~~~ VERTEX " + vertex.getIndex() + ": army\n~~~ P(army) = " + getProbability() +
+                "\n~~~ P(not army) = " + Probability.not(getProbability()) + '\n';
+    }
+
+    public double getProbability() {
+        return Probability.Parmy;
     }
 }

@@ -34,9 +34,15 @@ public class Utility {
                     int vertexNum = getInteger(line, 7);
                     g.getVertex(vertexNum - 1).setGoal(true);
                 } else if (action == 'C') {
-                    Probability.Pchem = Double.parseDouble(line.substring(8));
+                    if (line.charAt(3) == 'C')
+                        Probability.Pchem_cause = Double.parseDouble(line.substring(8));
+                    else
+                        Probability.Pchem = Double.parseDouble(line.substring(8));
                 } else if (action == 'A') {
-                    Probability.Parmy = Double.parseDouble(line.substring(8));
+                    if (line.charAt(3) == 'C')
+                        Probability.Parmy_cause = Double.parseDouble(line.substring(8));
+                    else
+                        Probability.Parmy = Double.parseDouble(line.substring(8));
                 } else if (action == 'R') {
                     Probability.Preveal = Double.parseDouble(line.substring(8));
                 } else {

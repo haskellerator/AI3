@@ -18,12 +18,18 @@ public class EntryPoint {
             System.out.println("~~~ no graph file given ");
             return;
         }
+
         Utility.fileName = args[0];
         System.out.println("~~~ Parsing file: " + args[0] + ", and Creating a Graph ");
 
         Graph g = Utility.processGraphFromFile();  // creating graph
         BayesianNetwork bn = new BayesianNetwork(g);
         Utility.openInput();
+
+
+        bn.show();
+
+
         startSimulation(g, bn);
         Utility.closeInput();
     }
@@ -44,7 +50,7 @@ public class EntryPoint {
             } else if (line.compareTo("3") == 0) {
                 g.showEvidenceList();
             } else if (line.compareTo("4") == 0) {
-                //BayesianNetwork.ProbabilisticReasoning();
+                //bn.ProbabilisticReasoning();
             } else {
                 print("unrecognized operation, retry...");
             }
@@ -55,5 +61,7 @@ public class EntryPoint {
     private static void print(String s) {
         System.out.println(s);
     }
+
+
 }
 

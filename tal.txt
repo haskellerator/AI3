@@ -4,7 +4,9 @@
 #E 2 3 W3 ; Edge between vertices 2 and 3, weight 3
 #E 3 4 W3 ; Edge between vertices 3 and 4, weight 3
 #E 2 4 W4 ; Edge between vertices 2 and 4, weight 4
-#C      0.11
-#A      0.23
+#C      0.3
 #R      0.8
+#A      0.4
+#C C    0.9
+#A C    0.7
 #Goal V3  ; To be used in optional bonus, if applicable
