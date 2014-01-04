@@ -4,14 +4,14 @@
 public class BayesianNodeTerrorists {
 
     private Edge edge;
-    private BayesianNodeVertexArmy firstArmyParent;
-    private BayesianNodeVertexReported firstReportedParent;
-    private BayesianNodeVertexArmy secondArmyParent;
-    private BayesianNodeVertexReported secondReportedParent;
+    private BayesianNodeArmy firstArmyParent;
+    private BayesianNodeReported firstReportedParent;
+    private BayesianNodeArmy secondArmyParent;
+    private BayesianNodeReported secondReportedParent;
     private double[] probabilities;
 
 
-    public BayesianNodeTerrorists(Edge e, BayesianNodeVertexArmy armyParent1, BayesianNodeVertexReported reportedParent1, BayesianNodeVertexArmy armyParent2, BayesianNodeVertexReported reportedParent2) {
+    public BayesianNodeTerrorists(Edge e, BayesianNodeArmy armyParent1, BayesianNodeReported reportedParent1, BayesianNodeArmy armyParent2, BayesianNodeReported reportedParent2) {
         this.edge = e;
         this.firstArmyParent = armyParent1;
         this.firstReportedParent = reportedParent1;
@@ -107,6 +107,10 @@ public class BayesianNodeTerrorists {
         else
             pCause = Probability.Parmy_cause;
         return pCause * Math.max((5 - this.edge.getWeight()) / 5, 0.3);
+    }
+
+    public Edge getEdge() {
+        return edge;
     }
 }
 

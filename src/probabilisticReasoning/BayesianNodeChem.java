@@ -1,18 +1,18 @@
 /**
  * Created by talz on 27/12/13.
  */
-public class BayesianNodeVertexChem extends BayesianNodeVertex {
-    private BayesianNodeVertexReported child;
+public class BayesianNodeChem extends BayesianNode {
+    private BayesianNodeReported child;
 
-    public BayesianNodeVertexChem(Vertex v) {
+    public BayesianNodeChem(Vertex v) {
         super(v);
     }
 
-    public void setChild(BayesianNodeVertexReported child) {
+    public void setChild(BayesianNodeReported child) {
         this.child = child;
     }
 
-    public BayesianNodeVertexReported getChild() {
+    public BayesianNodeReported getChild() {
         return child;
     }
 

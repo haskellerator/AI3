@@ -1,8 +1,8 @@
-public abstract class BayesianNodeVertex {
+public abstract class BayesianNode {
 
     protected Vertex vertex;
 
-    public BayesianNodeVertex(Vertex v) {
+    public BayesianNode(Vertex v) {
         this.vertex = v;
     }
 

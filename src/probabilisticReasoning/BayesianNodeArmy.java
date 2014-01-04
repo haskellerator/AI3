@@ -3,12 +3,12 @@ import java.util.ArrayList;
 /**
  * Created by talz on 27/12/13.
  */
-public class BayesianNodeVertexArmy extends BayesianNodeVertex {
+public class BayesianNodeArmy extends BayesianNode {
 
     private ArrayList<BayesianNodeTerrorists> children;
 
 
-    public BayesianNodeVertexArmy(Vertex v) {
+    public BayesianNodeArmy(Vertex v) {
         super(v);
         this.children = new ArrayList<BayesianNodeTerrorists>();
     }
